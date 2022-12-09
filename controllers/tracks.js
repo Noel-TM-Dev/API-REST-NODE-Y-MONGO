@@ -2,7 +2,6 @@
 const {tracksModel} = require("../models")
 
 
-
 /**
  * Obtener lista de la base de datos
  * @param {*} req 
@@ -20,7 +19,13 @@ const getItems = async (req,res)=>{
  * @param {*} req 
  * @param {*} res 
  */
-const getItem = (req,res)=>{}
+const getItem = async (req,res)=>{
+
+    const id = req.params.id;
+    const data = await tracksModel.findById(id);
+
+    res.send({data});
+}
 
 /**
  * Insertar un registro
